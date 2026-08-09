@@ -1,0 +1,44 @@
+@import "tailwindcss";
+
+@theme {
+  /* PRD color system */
+  --color-bg: #f5f3ef;
+  --color-ink: #1a1a18;
+  --color-stone: #6f6b63;
+  --color-brass: #a47b52;
+  --color-paper: #ffffff;
+  --color-night: #181816;
+
+  --font-display: var(--font-instrument), "Times New Roman", serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  --animate-kenburns: kenburns 16s ease-out forwards;
+  @keyframes kenburns {
+    from {
+      transform: scale(1.1);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-bg font-sans text-ink antialiased;
+  }
+  ::selection {
+    @apply bg-brass text-paper;
+  }
+}
+
+@utility wrap {
+  @apply mx-auto w-full max-w-[1360px] px-5 md:px-10;
+}
+
+@utility label-xs {
+  @apply text-[11px] font-medium tracking-[0.3em] uppercase;
+}
